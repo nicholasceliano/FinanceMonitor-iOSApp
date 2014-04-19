@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85F10C3E1902FAB500D48F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3D1902FAB500D48F38 /* Foundation.framework */; };
+		85F10C401902FAB500D48F38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */; };
+		85F10C421902FAB500D48F38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C411902FAB500D48F38 /* UIKit.framework */; };
+		85F10C481902FAB500D48F38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85F10C461902FAB500D48F38 /* InfoPlist.strings */; };
+		85F10C4A1902FAB500D48F38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F10C491902FAB500D48F38 /* main.m */; };
+		85F10C4E1902FAB500D48F38 /* XYZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F10C4D1902FAB500D48F38 /* XYZAppDelegate.m */; };
+		85F10C501902FAB500D48F38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F10C4F1902FAB500D48F38 /* Images.xcassets */; };
+		85F10C571902FAB500D48F38 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C561902FAB500D48F38 /* XCTest.framework */; };
+		85F10C581902FAB500D48F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3D1902FAB500D48F38 /* Foundation.framework */; };
+		85F10C591902FAB500D48F38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C411902FAB500D48F38 /* UIKit.framework */; };
+		85F10C611902FAB500D48F38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85F10C5F1902FAB500D48F38 /* InfoPlist.strings */; };
+		85F10C631902FAB500D48F38 /* FinanceMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F10C621902FAB500D48F38 /* FinanceMonitorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85F10C5A1902FAB500D48F38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85F10C321902FAB500D48F38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85F10C391902FAB500D48F38;
+			remoteInfo = FinanceMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		85F10C3A1902FAB500D48F38 /* FinanceMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F10C3D1902FAB500D48F38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		85F10C411902FAB500D48F38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		85F10C451902FAB500D48F38 /* FinanceMonitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FinanceMonitor-Info.plist"; sourceTree = "<group>"; };
+		85F10C471902FAB500D48F38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85F10C491902FAB500D48F38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		85F10C4B1902FAB500D48F38 /* FinanceMonitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinanceMonitor-Prefix.pch"; sourceTree = "<group>"; };
+		85F10C4C1902FAB500D48F38 /* XYZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZAppDelegate.h; sourceTree = "<group>"; };
+		85F10C4D1902FAB500D48F38 /* XYZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZAppDelegate.m; sourceTree = "<group>"; };
+		85F10C4F1902FAB500D48F38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		85F10C551902FAB500D48F38 /* FinanceMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F10C561902FAB500D48F38 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		85F10C5E1902FAB500D48F38 /* FinanceMonitorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FinanceMonitorTests-Info.plist"; sourceTree = "<group>"; };
+		85F10C601902FAB500D48F38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85F10C621902FAB500D48F38 /* FinanceMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinanceMonitorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85F10C371902FAB500D48F38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C401902FAB500D48F38 /* CoreGraphics.framework in Frameworks */,
+				85F10C421902FAB500D48F38 /* UIKit.framework in Frameworks */,
+				85F10C3E1902FAB500D48F38 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F10C521902FAB500D48F38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C571902FAB500D48F38 /* XCTest.framework in Frameworks */,
+				85F10C591902FAB500D48F38 /* UIKit.framework in Frameworks */,
+				85F10C581902FAB500D48F38 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85F10C311902FAB500D48F38 = {
+			isa = PBXGroup;
+			children = (
+				85F10C431902FAB500D48F38 /* FinanceMonitor */,
+				85F10C5C1902FAB500D48F38 /* FinanceMonitorTests */,
+				85F10C3C1902FAB500D48F38 /* Frameworks */,
+				85F10C3B1902FAB500D48F38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85F10C3B1902FAB500D48F38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C3A1902FAB500D48F38 /* FinanceMonitor.app */,
+				85F10C551902FAB500D48F38 /* FinanceMonitorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85F10C3C1902FAB500D48F38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C3D1902FAB500D48F38 /* Foundation.framework */,
+				85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */,
+				85F10C411902FAB500D48F38 /* UIKit.framework */,
+				85F10C561902FAB500D48F38 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85F10C431902FAB500D48F38 /* FinanceMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C4C1902FAB500D48F38 /* XYZAppDelegate.h */,
+				85F10C4D1902FAB500D48F38 /* XYZAppDelegate.m */,
+				85F10C4F1902FAB500D48F38 /* Images.xcassets */,
+				85F10C441902FAB500D48F38 /* Supporting Files */,
+			);
+			path = FinanceMonitor;
+			sourceTree = "<group>";
+		};
+		85F10C441902FAB500D48F38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C451902FAB500D48F38 /* FinanceMonitor-Info.plist */,
+				85F10C461902FAB500D48F38 /* InfoPlist.strings */,
+				85F10C491902FAB500D48F38 /* main.m */,
+				85F10C4B1902FAB500D48F38 /* FinanceMonitor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85F10C5C1902FAB500D48F38 /* FinanceMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C621902FAB500D48F38 /* FinanceMonitorTests.m */,
+				85F10C5D1902FAB500D48F38 /* Supporting Files */,
+			);
+			path = FinanceMonitorTests;
+			sourceTree = "<group>";
+		};
+		85F10C5D1902FAB500D48F38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85F10C5E1902FAB500D48F38 /* FinanceMonitorTests-Info.plist */,
+				85F10C5F1902FAB500D48F38 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85F10C391902FAB500D48F38 /* FinanceMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85F10C661902FAB500D48F38 /* Build configuration list for PBXNativeTarget "FinanceMonitor" */;
+			buildPhases = (
+				85F10C361902FAB500D48F38 /* Sources */,
+				85F10C371902FAB500D48F38 /* Frameworks */,
+				85F10C381902FAB500D48F38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinanceMonitor;
+			productName = FinanceMonitor;
+			productReference = 85F10C3A1902FAB500D48F38 /* FinanceMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		85F10C541902FAB500D48F38 /* FinanceMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85F10C691902FAB500D48F38 /* Build configuration list for PBXNativeTarget "FinanceMonitorTests" */;
+			buildPhases = (
+				85F10C511902FAB500D48F38 /* Sources */,
+				85F10C521902FAB500D48F38 /* Frameworks */,
+				85F10C531902FAB500D48F38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85F10C5B1902FAB500D48F38 /* PBXTargetDependency */,
+			);
+			name = FinanceMonitorTests;
+			productName = FinanceMonitorTests;
+			productReference = 85F10C551902FAB500D48F38 /* FinanceMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85F10C321902FAB500D48F38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = XYZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = nceliano;
+				TargetAttributes = {
+					85F10C541902FAB500D48F38 = {
+						TestTargetID = 85F10C391902FAB500D48F38;
+					};
+				};
+			};
+			buildConfigurationList = 85F10C351902FAB500D48F38 /* Build configuration list for PBXProject "FinanceMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 85F10C311902FAB500D48F38;
+			productRefGroup = 85F10C3B1902FAB500D48F38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85F10C391902FAB500D48F38 /* FinanceMonitor */,
+				85F10C541902FAB500D48F38 /* FinanceMonitorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85F10C381902FAB500D48F38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C481902FAB500D48F38 /* InfoPlist.strings in Resources */,
+				85F10C501902FAB500D48F38 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F10C531902FAB500D48F38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C611902FAB500D48F38 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85F10C361902FAB500D48F38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C4E1902FAB500D48F38 /* XYZAppDelegate.m in Sources */,
+				85F10C4A1902FAB500D48F38 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F10C511902FAB500D48F38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F10C631902FAB500D48F38 /* FinanceMonitorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85F10C5B1902FAB500D48F38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85F10C391902FAB500D48F38 /* FinanceMonitor */;
+			targetProxy = 85F10C5A1902FAB500D48F38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		85F10C461902FAB500D48F38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F10C471902FAB500D48F38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		85F10C5F1902FAB500D48F38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F10C601902FAB500D48F38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85F10C641902FAB500D48F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85F10C651902FAB500D48F38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85F10C671902FAB500D48F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FinanceMonitor/FinanceMonitor-Prefix.pch";
+				INFOPLIST_FILE = "FinanceMonitor/FinanceMonitor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		85F10C681902FAB500D48F38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FinanceMonitor/FinanceMonitor-Prefix.pch";
+				INFOPLIST_FILE = "FinanceMonitor/FinanceMonitor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		85F10C6A1902FAB500D48F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FinanceMonitor.app/FinanceMonitor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FinanceMonitor/FinanceMonitor-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FinanceMonitorTests/FinanceMonitorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		85F10C6B1902FAB500D48F38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FinanceMonitor.app/FinanceMonitor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FinanceMonitor/FinanceMonitor-Prefix.pch";
+				INFOPLIST_FILE = "FinanceMonitorTests/FinanceMonitorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85F10C351902FAB500D48F38 /* Build configuration list for PBXProject "FinanceMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F10C641902FAB500D48F38 /* Debug */,
+				85F10C651902FAB500D48F38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85F10C661902FAB500D48F38 /* Build configuration list for PBXNativeTarget "FinanceMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F10C671902FAB500D48F38 /* Debug */,
+				85F10C681902FAB500D48F38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		85F10C691902FAB500D48F38 /* Build configuration list for PBXNativeTarget "FinanceMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F10C6A1902FAB500D48F38 /* Debug */,
+				85F10C6B1902FAB500D48F38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85F10C321902FAB500D48F38 /* Project object */;
+}
