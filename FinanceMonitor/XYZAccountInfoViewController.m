@@ -8,7 +8,9 @@
 
 #import "XYZAccountInfoViewController.h"
 #import "XYZAccountsListTableViewController.h"
-#import "XYZHess401kAmount.h"
+#import "XYZAccountInformation.h"
+#import "XYZWebServices.h"
+#import "XYZFormattingHelper.h"
 
 @interface XYZAccountInfoViewController ()
 @property NSString *pageTitle;
@@ -30,62 +32,37 @@
 {
     [super viewDidLoad];
     
-    NSString*baseURI = @"https://financemonitor.azurewebsites.net/";
-    NSString*APILocation = @"api/hessbenefits/get401k";
+    _lblTitle.text = _pageTitle;
     
-    [self RetrieveAccountValues:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURI,APILocation]]];
+    [self retrieveAccountData:_pageTitle];
 }
 
-- (void)setTitle:(NSString *)title
+- (void)retrieveAccountData:(NSString *)account
 {
-    self.pageTitle = title;
+    [_indicator startAnimating];
+    
+    NSString *extensionURI;
+    
+    if ([account isEqual: @"Hess 401k"]) {
+        extensionURI = @"api/hessbenefits/get401k";
+    }
+    
+    XYZWebServices *webServices = [[XYZWebServices alloc] init];
+    [webServices RetrieveAccountValues:extensionURI :self];
 }
 
-- (void)RetrieveAccountValues:(NSURL *)url
+- (void)setTitle:(NSString *)pageTitle
 {
-    [self.indicator startAnimating];
-    
-    NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:60];
-    self.receivedData = [NSMutableData dataWithCapacity: 0];
-
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    NSLog(@"%@", theConnection);
+    _pageTitle = pageTitle;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    self.receivedData = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [self.receivedData appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *e;
-    NSArray *object = [NSJSONSerialization JSONObjectWithData:self.receivedData options:NSJSONReadingMutableContainers error:&e];
-    
-    NSDictionary *dict = (NSDictionary *)object;
-    XYZHess401kAmount*acc = [[XYZHess401kAmount alloc]init];
-    acc.Amount = dict[@"Amount"];
-    acc.RequestTime = dict[@"RequestTime"];
-    
-    // Turn OFF the loading Icon
-    [self.indicator stopAnimating];
-    
-    //Load controls
-    [self SetPageValues:acc];
-}
-
-- (void)SetPageValues:(XYZHess401kAmount *)info401k
+- (void)setPageValues:(XYZAccountInformation *)accInfo
 {
-    self.lblTitle.text = self.pageTitle;
-    self.lblTitleAmount.text = @"Amount:";
-    self.lblAmount.text = (info401k.Amount != nil) ? [info401k.Amount stringValue] : @"Error";
+    [_indicator stopAnimating];
+    
+    _lblRequestDate.text = (accInfo.RequestDate != nil) ? [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate] : @"Error";
+    _lblAmount.text = (accInfo.Amount != nil) ? [XYZFormattingHelper FormatDecimalToMoneyString:accInfo.Amount] : @"Error";
 }
-
-
-
 
 - (void)didReceiveMemoryWarning
 {

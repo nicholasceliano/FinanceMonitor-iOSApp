@@ -1,22 +1,20 @@
 //
-//  XYZAccountsListTableViewController.m
+//  XYZHomePageTableViewController.m
 //  FinanceMonitor
 //
-//  Created by NEC on 4/19/14.
+//  Created by NEC on 4/20/14.
 //  Copyright (c) 2014 nceliano. All rights reserved.
 //
 
-#import "XYZAccountsListTableViewController.h"
-#import "XYZaccount.h"
+#import "XYZHomePageTableViewController.h"
+#import "XYZWebServices.h"
+#import "XYZFormattingHelper.h"
 
-@interface XYZAccountsListTableViewController ()
-
-@property NSMutableArray *Accounts;
+@interface XYZHomePageTableViewController ()
 
 @end
 
-@implementation XYZAccountsListTableViewController
-
+@implementation XYZHomePageTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,27 +29,21 @@
 {
     [super viewDidLoad];
     
-    self.Accounts = [[NSMutableArray alloc] init];
-    
-    [self loadInitialData];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self populateAccountData];
 }
 
-- (void)loadInitialData
+- (void)populateAccountData
 {
-    XYZAccount *item1 = [[XYZAccount alloc] init];
-    item1.AccountName = @"Hess 401k";
-    [self.Accounts addObject:item1];
-    
-    XYZAccount *item2 = [[XYZAccount alloc] init];
-    item2.AccountName = @"Hess 402k";
-    [self.Accounts addObject:item2];
+    XYZWebServices *webServices = [[XYZWebServices alloc] init];
+    [webServices RetrieveAccountValues:@"api/hessbenefits/db_get401k" :self];
 }
+
+- (void)setPageValues:(XYZAccountInformation *)accInfo
+{
+    _lblRetirementTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:accInfo.Amount];
+    _lblRetirementDate.text = [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -61,31 +53,30 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return self.Accounts.count;
-}
-
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ListItemCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    XYZAccount *item = [self.Accounts objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = item.AccountName;
+    // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -125,18 +116,15 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UITableViewCell *cell = sender;
-    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    [segue.destinationViewController setTitle:cell.textLabel.text];
 }
-
+*/
 
 @end

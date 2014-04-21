@@ -10,6 +10,4 @@
 
 @interface XYZAccountsListTableViewController : UITableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
-
 @end
