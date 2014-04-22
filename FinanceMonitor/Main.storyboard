@@ -139,6 +139,17 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-Qs-gYa">
+                                                    <rect key="frame" x="132" y="9" width="168" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Dfo-eX-zBh">
+                                                    <rect key="frame" x="142" y="9" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -180,6 +191,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gvf-jt-tTK">
+                                                    <rect key="frame" x="142" y="38" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -208,6 +224,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gdW-BW-YeF">
+                                                    <rect key="frame" x="142" y="38" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -236,6 +257,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i1N-G0-Giu">
+                                                    <rect key="frame" x="142" y="38" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -264,6 +290,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4af-0K-uPb">
+                                                    <rect key="frame" x="142" y="38" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -284,7 +315,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9eb-k0-4xU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="viM-eJ-aKk"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="viM-eJ-aKk">
+                            <connections>
+                                <action selector="reloadData:" destination="IFi-86-Bsg" id="ZGl-rF-Tgu"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Accounts" id="vyZ-Q5-mHz">
                             <connections>
                                 <segue destination="qHs-bj-jNG" kind="push" id="l5g-pA-IJ0"/>
@@ -292,6 +327,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="aiAllAccounts" destination="Dfo-eX-zBh" id="fUr-c4-Aue"/>
+                        <outlet property="aiCheckingAcc" destination="i1N-G0-Giu" id="MW9-eX-vJb"/>
+                        <outlet property="aiInvestAcc" destination="4af-0K-uPb" id="UTI-Dc-Jjc"/>
+                        <outlet property="aiRetirementAcc" destination="Gvf-jt-tTK" id="pMW-kh-DhD"/>
+                        <outlet property="aiSavingsAcc" destination="gdW-BW-YeF" id="8i2-z3-5uy"/>
+                        <outlet property="lblAllAccounts" destination="TVd-Qs-gYa" id="gHg-tZ-EPH"/>
                         <outlet property="lblRetirementDate" destination="gHA-xl-pYz" id="nnk-DI-ZGf"/>
                         <outlet property="lblRetirementTotal" destination="tLj-WJ-YsU" id="egM-PZ-lem"/>
                     </connections>

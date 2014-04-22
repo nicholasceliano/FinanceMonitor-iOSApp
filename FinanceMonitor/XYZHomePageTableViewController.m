@@ -32,16 +32,40 @@
     [self populateAccountData];
 }
 
+- (IBAction)reloadData:(id)sender
+{
+    [self populateAccountData];
+}
+
 - (void)populateAccountData
 {
+    [_aiAllAccounts startAnimating];
+    [_aiRetirementAcc startAnimating];
+    [_aiSavingsAcc startAnimating];
+    [_aiCheckingAcc startAnimating];
+    [_aiInvestAcc startAnimating];
+    
+    
     XYZWebServices *webServices = [[XYZWebServices alloc] init];
     [webServices RetrieveAccountValues:@"api/hessbenefits/db_get401k" :self];
 }
 
 - (void)setPageValues:(XYZAccountInformation *)accInfo
 {
+    
+    [_aiAllAccounts stopAnimating];
+    [_aiRetirementAcc stopAnimating];
+    [_aiSavingsAcc stopAnimating];
+    [_aiCheckingAcc stopAnimating];
+    [_aiInvestAcc stopAnimating];
+    
+    NSNumber *allAccountsTotal;
+    
+    allAccountsTotal = accInfo.Amount;
     _lblRetirementTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:accInfo.Amount];
     _lblRetirementDate.text = [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate];
+    
+    _lblAllAccounts.text = [XYZFormattingHelper FormatDecimalToMoneyString:allAccountsTotal];
 }
 
 
