@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XYZAllAccountsInformation.h"
 
 @interface XYZAccountsListTableViewController : UITableViewController
 
-- (void)setPageValues:(XYZaccounts*)accInfo;
+
+- (void)setPageValues:(XYZAllAccountsInformation*)accInfo;
 
 @end

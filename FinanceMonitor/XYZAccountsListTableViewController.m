@@ -59,8 +59,9 @@
 }
 
 
-- (void)setPageValues
+- (void)setPageValues:(XYZAllAccountsInformation *)accInfo
 {
+    
     
 }
 
