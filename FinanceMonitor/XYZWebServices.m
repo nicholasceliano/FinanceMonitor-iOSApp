@@ -10,6 +10,7 @@
 #import "XYZAccountInformation.h"
 #import "XYZAccountInfoViewController.h"
 #import "XYZHomePageTableViewController.h"
+#import "XYZAccountsListTableViewController.h"
 
 @interface XYZWebServices ()
 
@@ -66,6 +67,10 @@
     } else if ([_controller isKindOfClass:[XYZAccountInfoViewController class]])
     {
         XYZAccountInfoViewController *page = _controller;
+        [page setPageValues:ai];
+    } else if ([_controller isKindOfClass:[XYZAccountsListTableViewController class]])
+    {
+        XYZAccountsListTableViewController *page = _controller;
         [page setPageValues:ai];
     }
     

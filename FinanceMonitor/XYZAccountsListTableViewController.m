@@ -8,6 +8,7 @@
 
 #import "XYZAccountsListTableViewController.h"
 #import "XYZaccount.h"
+#import "XYZWebServices.h"
 
 @interface XYZAccountsListTableViewController ()
 
@@ -35,22 +36,32 @@
     
     [self loadInitialData];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)loadInitialData
 {
-    XYZAccount *item1 = [[XYZAccount alloc] init];
-    item1.AccountName = @"Hess 401k";
-    [self.Accounts addObject:item1];
+    XYZWebServices *webServices = [[XYZWebServices alloc] init];
+    [webServices RetrieveAccountValues:@"api/generalAccounts/GetAllAccountsByUser/nicholasceliano@yahoo.com/" :self];
+
+    
+    
+    for (int i = 0; i < 5; i++) {
+        XYZAccount *newItem = [[XYZAccount alloc] init];
+        newItem.AccountName = @"Hess 401k";
+        [self.Accounts addObject:newItem];
+    }
+    	
+    
     
     XYZAccount *item2 = [[XYZAccount alloc] init];
     item2.AccountName = @"Hess 402k";
     [self.Accounts addObject:item2];
+}
+
+
+- (void)setPageValues
+{
+    
 }
 
 - (void)didReceiveMemoryWarning

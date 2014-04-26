@@ -10,4 +10,6 @@
 
 @interface XYZAccountsListTableViewController : UITableViewController
 
+- (void)setPageValues:(XYZaccounts*)accInfo;
+
 @end
