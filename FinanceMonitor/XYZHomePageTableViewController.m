@@ -14,6 +14,8 @@
 
 @interface XYZHomePageTableViewController ()
 
+@property NSString* userName;
+
 @end
 
 @implementation XYZHomePageTableViewController
@@ -31,33 +33,33 @@
 {
     [super viewDidLoad];
     
-    [self populateAccountData:@"nicholasceliano@yahoo.com"];
+    //removes extra tableView rows
+    self.tableView.tableFooterView = [[UIView alloc]init];
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.tintColor = [UIColor colorWithRed:250.0f/255.0f green:151.0f/255.0f blue:52.0f/255.0f alpha:1.0f];
+    [refresh addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    [self refreshData];
 }
 
-- (IBAction)reloadData:(id)sender
+- (void)refreshData
 {
-    [self populateAccountData:@"nicholasceliano@yahoo.com"];
+    _userName = @"nicholasceliano@yahoo.com";
+    [self populateAccountData:_userName];
+    [self performSelector:@selector(setPageValues) withObject:nil afterDelay:1];
 }
 
 - (void)populateAccountData:(NSString*)userName
 {
-    [_aiAllAccounts startAnimating];
-    [_aiRetirementAcc startAnimating];
-    [_aiSavingsAcc startAnimating];
-    [_aiCheckingAcc startAnimating];
-    [_aiInvestAcc startAnimating];
-    
     XYZWebServices *webServices = [[XYZWebServices alloc] init];
     [webServices RetrieveAccountValues:[NSString stringWithFormat:@"%@%@%@", @"api/generalAccounts/GetAllAccountsByUser/",userName, @"/"]:self];
 }
 
 - (void)setPageValues
 {
-    [_aiAllAccounts stopAnimating];
-    [_aiRetirementAcc stopAnimating];
-    [_aiSavingsAcc stopAnimating];
-    [_aiCheckingAcc stopAnimating];
-    [_aiInvestAcc stopAnimating];
+    
+    [self.refreshControl endRefreshing];
     
     double totAllAccounts = 0;
     double totRetirement = 0;
