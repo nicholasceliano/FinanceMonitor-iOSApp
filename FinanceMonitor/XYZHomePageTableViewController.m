@@ -7,8 +7,10 @@
 //
 
 #import "XYZHomePageTableViewController.h"
+#import "XYZAllAccountsInformation_Record.h"
 #import "XYZWebServices.h"
 #import "XYZFormattingHelper.h"
+#import "GlobalObjects.h"
 
 @interface XYZHomePageTableViewController ()
 
@@ -29,15 +31,15 @@
 {
     [super viewDidLoad];
     
-    [self populateAccountData];
+    [self populateAccountData:@"nicholasceliano@yahoo.com"];
 }
 
 - (IBAction)reloadData:(id)sender
 {
-    [self populateAccountData];
+    [self populateAccountData:@"nicholasceliano@yahoo.com"];
 }
 
-- (void)populateAccountData
+- (void)populateAccountData:(NSString*)userName
 {
     [_aiAllAccounts startAnimating];
     [_aiRetirementAcc startAnimating];
@@ -45,27 +47,73 @@
     [_aiCheckingAcc startAnimating];
     [_aiInvestAcc startAnimating];
     
-    
     XYZWebServices *webServices = [[XYZWebServices alloc] init];
-    [webServices RetrieveAccountValues:@"api/hessbenefits/db_get401k" :self];
+    [webServices RetrieveAccountValues:[NSString stringWithFormat:@"%@%@%@", @"api/generalAccounts/GetAllAccountsByUser/",userName, @"/"]:self];
 }
 
-- (void)setPageValues:(XYZAccountInformation *)accInfo
+- (void)setPageValues
 {
-    
     [_aiAllAccounts stopAnimating];
     [_aiRetirementAcc stopAnimating];
     [_aiSavingsAcc stopAnimating];
     [_aiCheckingAcc stopAnimating];
     [_aiInvestAcc stopAnimating];
     
-    NSNumber *allAccountsTotal;
+    double totAllAccounts = 0;
+    double totRetirement = 0;
+    double totInvestments = 0;
+    double totSavings = 0;
+    double totChecking = 0;
+    NSString* minRetirementDate;
+    NSString* minInvestmentDate;
+    NSString* minSavingsDate;
+    NSString* minCheckingDate;
     
-    allAccountsTotal = accInfo.Amount;
-    _lblRetirementTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:accInfo.Amount];
-    _lblRetirementDate.text = [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate];
+    for (NSObject *obj in [GlobalObjects allAccInfoForUser]) {
+        NSMutableDictionary *dict = (NSMutableDictionary*)obj;
+        
+        XYZAllAccountsInformation_Record *item = [[XYZAllAccountsInformation_Record alloc] init];
+        item.AccountTypeID = dict[@"AccountTypeID"];
+        item.LatestAmount = dict[@"LatestAmount"];
+        item.LatestRequestDate = dict[@"LatestRequestDate"];
+        item.IsActive = dict[@"IsActive"];
+        
+        if (item.IsActive)
+        {
+            totAllAccounts = totAllAccounts + [item.LatestAmount doubleValue];
+            
+            switch ([item.AccountTypeID intValue]) {
+                case 1://Retirement
+                    totRetirement = totRetirement + [item.LatestAmount doubleValue];
+                    minRetirementDate = item.LatestRequestDate;
+                    break;
+                case 2://Investments
+                    totInvestments = totInvestments + [item.LatestAmount doubleValue];
+                    minInvestmentDate = item.LatestRequestDate;
+                    break;
+                case 3://Checking
+                    totChecking = totChecking + [item.LatestAmount doubleValue];
+                    minCheckingDate = item.LatestRequestDate;
+                    break;
+                case 4://Savings
+                    totSavings = totSavings + [item.LatestAmount doubleValue];
+                    minSavingsDate = item.LatestRequestDate;
+                    break;
+            }
+        }
+    }
+
+    _lblAllAccounts.text = [XYZFormattingHelper FormatDecimalToMoneyString:totAllAccounts];
+    _lblRetirementTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:totRetirement];
+    _lblInvestmentsTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:totInvestments];
+    _lblCheckingTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:totChecking];
+    _lblSavingsTotal.text = [XYZFormattingHelper FormatDecimalToMoneyString:totSavings];
     
-    _lblAllAccounts.text = [XYZFormattingHelper FormatDecimalToMoneyString:allAccountsTotal];
+    _lblRetirementDate.text = [XYZFormattingHelper SetProperDateTime:minRetirementDate];
+    _lblInvestmentsDate.text = [XYZFormattingHelper SetProperDateTime:minInvestmentDate];
+    _lblCheckingDate.text = [XYZFormattingHelper SetProperDateTime:minCheckingDate];
+    _lblSavingsDate.text = [XYZFormattingHelper SetProperDateTime:minSavingsDate];
+    
 }
 
 
@@ -74,81 +122,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

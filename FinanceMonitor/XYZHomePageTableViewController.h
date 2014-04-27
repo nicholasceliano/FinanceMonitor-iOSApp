@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYZAccountInformation.h"
 
 @interface XYZHomePageTableViewController : UITableViewController
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aiInvestAcc;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aiCheckingAcc;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aiSavingsAcc;
@@ -17,10 +17,15 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aiAllAccounts;
 @property (weak, nonatomic) IBOutlet UILabel *lblRetirementDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblRetirementTotal;
+@property (weak, nonatomic) IBOutlet UILabel *lblSavingsTotal;
+@property (weak, nonatomic) IBOutlet UILabel *lblSavingsDate;
+@property (weak, nonatomic) IBOutlet UILabel *lblCheckingTotal;
+@property (weak, nonatomic) IBOutlet UILabel *lblCheckingDate;
+@property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsTotal;
+@property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblAllAccounts;
 
-
 - (IBAction)reloadData:(id)sender;
-- (void)setPageValues:(XYZAccountInformation*)accInfo;
+- (void)setPageValues;
 
 @end

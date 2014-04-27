@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYZAccountInformation.h"
 
 @interface XYZAccountInfoViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *lblRequestDate;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UILabel *lblRequestDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmount;
-
-- (void)setPageValues:(XYZAccountInformation*)accInfo;
+@property (weak, nonatomic) IBOutlet UILabel *lblAccountType;
+@property NSInteger accountID;
+@property NSString*pageTitle;
+- (void)setPageValues;
 
 @end

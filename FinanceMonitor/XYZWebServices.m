@@ -7,10 +7,10 @@
 //
 
 #import "XYZWebServices.h"
-#import "XYZAccountInformation.h"
 #import "XYZAccountInfoViewController.h"
 #import "XYZHomePageTableViewController.h"
 #import "XYZAccountsListTableViewController.h"
+#import "GlobalObjects.h"
 
 @interface XYZWebServices ()
 
@@ -48,31 +48,16 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSError *e;
-    NSArray *object = [NSJSONSerialization JSONObjectWithData:self.receivedData options:NSJSONReadingMutableContainers error:&e];
-    
-    NSDictionary *dict = (NSDictionary *)object;
-    
-    XYZAccountInformation*ai = [[XYZAccountInformation alloc]init];
-    ai.Amount = dict[@"Amount"];
-    ai.RequestDate = dict[@"RequestDate"];
-    
-    
+    NSMutableArray *object = [NSJSONSerialization JSONObjectWithData:self.receivedData options:NSJSONReadingMutableContainers error:&e];
+    [GlobalObjects  load:object];
     
     //Load controls
-    
     if([_controller isKindOfClass:[XYZHomePageTableViewController class]])
-    {
-        XYZHomePageTableViewController *page = _controller;
-        [page setPageValues:ai];
-    } else if ([_controller isKindOfClass:[XYZAccountInfoViewController class]])
-    {
-        XYZAccountInfoViewController *page = _controller;
-        [page setPageValues:ai];
-    } else if ([_controller isKindOfClass:[XYZAccountsListTableViewController class]])
-    {
-        XYZAccountsListTableViewController *page = _controller;
-        [page setPageValues:ai];
-    }
+        [(XYZHomePageTableViewController*)_controller setPageValues];
+    else if ([_controller isKindOfClass:[XYZAccountInfoViewController class]])
+        [(XYZAccountInfoViewController*)_controller setPageValues];
+    else if ([_controller isKindOfClass:[XYZAccountsListTableViewController class]])
+        [(XYZAccountsListTableViewController*)_controller setPageValues];
     
 }
 

@@ -21,7 +21,7 @@
     return [formatter stringFromDate:date];
 }
 
-+ (NSString*)FormatDecimalToMoneyString:(NSNumber*)decimalValue
++ (NSString*)FormatDecimalToMoneyString:(double)decimalValue
 {
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -31,7 +31,7 @@
     [formatter setAlwaysShowsDecimalSeparator:NO];
     [formatter setUsesGroupingSeparator:YES];
     
-    return [formatter stringFromNumber:[NSNumber numberWithDouble:[decimalValue doubleValue]]];
+    return [formatter stringFromNumber:[NSNumber numberWithDouble:decimalValue]];
 }
 
 @end

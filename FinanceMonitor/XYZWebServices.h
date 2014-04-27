@@ -10,6 +10,6 @@
 
 @interface XYZWebServices: NSObject
 
-- (void)RetrieveAccountValues:(NSString *)extURI: (NSObject *)controler;
+- (void)RetrieveAccountValues:(NSString *)extURI:(NSObject *)controler;
 
 @end

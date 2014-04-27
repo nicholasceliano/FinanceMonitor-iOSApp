@@ -8,13 +8,13 @@
 
 #import "XYZAccountInfoViewController.h"
 #import "XYZAccountsListTableViewController.h"
-#import "XYZAccountInformation.h"
 #import "XYZWebServices.h"
 #import "XYZFormattingHelper.h"
+#import "GlobalObjects.h"
+
 
 @interface XYZAccountInfoViewController ()
-@property NSString *pageTitle;
-@property NSMutableData *receivedData;
+
 @end
 
 @implementation XYZAccountInfoViewController
@@ -34,7 +34,9 @@
     
     _lblTitle.text = _pageTitle;
     
-    [self retrieveAccountData:_pageTitle];
+    [self setPageValues];
+    
+    //[self retrieveAccountData:_pageTitle];
 }
 
 - (void)retrieveAccountData:(NSString *)account
@@ -48,20 +50,36 @@
     }
     
     XYZWebServices *webServices = [[XYZWebServices alloc] init];
-    [webServices RetrieveAccountValues:extensionURI :self];
+    [webServices RetrieveAccountValues:extensionURI:self];
 }
 
-- (void)setTitle:(NSString *)pageTitle
-{
-    _pageTitle = pageTitle;
-}
-
-- (void)setPageValues:(XYZAccountInformation *)accInfo
+- (void)setPageValues
 {
     [_indicator stopAnimating];
     
-    _lblRequestDate.text = (accInfo.RequestDate != nil) ? [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate] : @"Error";
-    _lblAmount.text = (accInfo.Amount != nil) ? [XYZFormattingHelper FormatDecimalToMoneyString:accInfo.Amount] : @"Error";
+    
+    for (NSObject *obj in [GlobalObjects allAccInfoForUser]) {
+        NSMutableDictionary *dict = (NSMutableDictionary*)obj;
+        XYZAllAccountsInformation_Record *item = [[XYZAllAccountsInformation_Record alloc]init];
+        item.ID = dict[@"ID"];
+        item.LatestAmount = dict[@"LatestAmount"];
+        item.AccountType = dict[@"AccountType"];
+        item.LatestRequestDate = dict[@"LatestRequestDate"];
+        
+        if ([item.ID integerValue] == _accountID) {
+            _lblAmount.text = [XYZFormattingHelper FormatDecimalToMoneyString:[item.LatestAmount doubleValue]];
+            _lblRequestDate.text = [XYZFormattingHelper SetProperDateTime:item.LatestRequestDate];
+            _lblAccountType.text = item.AccountType;
+        }
+    }
+    
+    //NSMutableDictionary *dict = (NSMutableDictionary*)object;
+    //XYZAccountInformation*accInfo = [[XYZAccountInformation alloc] init];
+    //accInfo.Amount = dict[@"Amount"];
+    //accInfo.RequestDate = dict[@"RequestDate"];
+    
+    //_lblRequestDate.text = (accInfo.RequestDate != nil) ? [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate] : @"Error";
+    //_lblAmount.text = (accInfo.Amount != nil) ? [XYZFormattingHelper FormatDecimalToMoneyString:[accInfo.Amount doubleValue]] : @"Error";
 }
 
 - (void)didReceiveMemoryWarning

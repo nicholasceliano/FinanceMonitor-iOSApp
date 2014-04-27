@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYZAllAccountsInformation_Record.h"
 
 @interface XYZAllAccountsInformation : NSObject
-@property NSObject *ID;
+@property XYZAllAccountsInformation_Record *record;
 @end

@@ -11,10 +11,10 @@
 		852D5FA119036A2F00503B2D /* XYZAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852D5FA019036A2F00503B2D /* XYZAccountInfoViewController.m */; };
 		852D5FAC1904226E00503B2D /* XYZHomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852D5FAB1904226E00503B2D /* XYZHomePageTableViewController.m */; };
 		85A6BEF0190488F600664DC6 /* XYZWebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEEF190488F600664DC6 /* XYZWebServices.m */; };
-		85A6BEF319049FB000664DC6 /* XYZAccountInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEF219049FB000664DC6 /* XYZAccountInformation.m */; };
-		85A6BEFC1904A1B900664DC6 /* XYZAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEFB1904A1B900664DC6 /* XYZAccount.m */; };
 		85A6BEFF1904B16B00664DC6 /* XYZFormattingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEFE1904B16B00664DC6 /* XYZFormattingHelper.m */; };
+		85A81C33190C833B0047500F /* GlobalObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A81C32190C833B0047500F /* GlobalObjects.m */; };
 		85A8927E190C3A0600C0F7F3 /* XYZAllAccountsInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */; };
+		85A89281190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */; };
 		85F10C3E1902FAB500D48F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3D1902FAB500D48F38 /* Foundation.framework */; };
 		85F10C401902FAB500D48F38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */; };
 		85F10C421902FAB500D48F38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C411902FAB500D48F38 /* UIKit.framework */; };
@@ -49,14 +49,14 @@
 		852D5FAB1904226E00503B2D /* XYZHomePageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHomePageTableViewController.m; sourceTree = "<group>"; };
 		85A6BEEE190488F600664DC6 /* XYZWebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZWebServices.h; sourceTree = "<group>"; };
 		85A6BEEF190488F600664DC6 /* XYZWebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZWebServices.m; sourceTree = "<group>"; };
-		85A6BEF119049FB000664DC6 /* XYZAccountInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAccountInformation.h; sourceTree = "<group>"; };
-		85A6BEF219049FB000664DC6 /* XYZAccountInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAccountInformation.m; sourceTree = "<group>"; };
-		85A6BEFA1904A1B900664DC6 /* XYZAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAccount.h; sourceTree = "<group>"; };
-		85A6BEFB1904A1B900664DC6 /* XYZAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAccount.m; sourceTree = "<group>"; };
 		85A6BEFD1904B16B00664DC6 /* XYZFormattingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZFormattingHelper.h; sourceTree = "<group>"; };
 		85A6BEFE1904B16B00664DC6 /* XYZFormattingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZFormattingHelper.m; sourceTree = "<group>"; };
+		85A81C31190C833B0047500F /* GlobalObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalObjects.h; sourceTree = "<group>"; };
+		85A81C32190C833B0047500F /* GlobalObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalObjects.m; sourceTree = "<group>"; };
 		85A8927C190C3A0600C0F7F3 /* XYZAllAccountsInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAllAccountsInformation.h; sourceTree = "<group>"; };
 		85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAllAccountsInformation.m; sourceTree = "<group>"; };
+		85A8927F190C418200C0F7F3 /* XYZAllAccountsInformation_Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAllAccountsInformation_Record.h; sourceTree = "<group>"; };
+		85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAllAccountsInformation_Record.m; sourceTree = "<group>"; };
 		85F10C3A1902FAB500D48F38 /* FinanceMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F10C3D1902FAB500D48F38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,12 +116,10 @@
 		852D5FA3190375AE00503B2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				85A6BEF119049FB000664DC6 /* XYZAccountInformation.h */,
-				85A6BEF219049FB000664DC6 /* XYZAccountInformation.m */,
-				85A6BEFA1904A1B900664DC6 /* XYZAccount.h */,
-				85A6BEFB1904A1B900664DC6 /* XYZAccount.m */,
 				85A8927C190C3A0600C0F7F3 /* XYZAllAccountsInformation.h */,
 				85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */,
+				85A8927F190C418200C0F7F3 /* XYZAllAccountsInformation_Record.h */,
+				85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -159,6 +157,8 @@
 		85F10C431902FAB500D48F38 /* FinanceMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				85A81C31190C833B0047500F /* GlobalObjects.h */,
+				85A81C32190C833B0047500F /* GlobalObjects.m */,
 				85A6BEFD1904B16B00664DC6 /* XYZFormattingHelper.h */,
 				85A6BEFE1904B16B00664DC6 /* XYZFormattingHelper.m */,
 				85A6BEEE190488F600664DC6 /* XYZWebServices.h */,
@@ -304,12 +304,12 @@
 				85F10C4E1902FAB500D48F38 /* XYZAppDelegate.m in Sources */,
 				85A8927E190C3A0600C0F7F3 /* XYZAllAccountsInformation.m in Sources */,
 				852D5FA119036A2F00503B2D /* XYZAccountInfoViewController.m in Sources */,
+				85A89281190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m in Sources */,
+				85A81C33190C833B0047500F /* GlobalObjects.m in Sources */,
 				85A6BEFF1904B16B00664DC6 /* XYZFormattingHelper.m in Sources */,
 				852D5F9B19035D4500503B2D /* XYZAccountsListTableViewController.m in Sources */,
 				85F10C4A1902FAB500D48F38 /* main.m in Sources */,
 				852D5FAC1904226E00503B2D /* XYZHomePageTableViewController.m in Sources */,
-				85A6BEF319049FB000664DC6 /* XYZAccountInformation.m in Sources */,
-				85A6BEFC1904A1B900664DC6 /* XYZAccount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,5 +10,5 @@
 
 @interface XYZFormattingHelper : NSObject
 + (NSString*)SetProperDateTime:(NSString*)stringDate;
-+ (NSString*)FormatDecimalToMoneyString:(NSNumber*)decimalValue;
++ (NSString*)FormatDecimalToMoneyString:(double)decimalValue;
 @end
