@@ -35,28 +35,30 @@
     _lblTitle.text = _pageTitle;
     
     [self setPageValues];
-    
-    //[self retrieveAccountData:_pageTitle];
+}
+
+- (IBAction)refreshPage:(id)sender {
+    [_indicator startAnimating];
+    [self performSelector:@selector(retrieveAccountData:) withObject:_pageTitle afterDelay:1];
 }
 
 - (void)retrieveAccountData:(NSString *)account
 {
-    [_indicator startAnimating];
-    
+    //[_indicator startAnimating];
     NSString *extensionURI;
     
     if ([account isEqual: @"Hess 401k"]) {
         extensionURI = @"api/hessbenefits/get401k";
     }
     
-    XYZWebServices *webServices = [[XYZWebServices alloc] init];
-    [webServices RetrieveAccountValues:extensionURI:self];
+    //XYZWebServices *webServices = [[XYZWebServices alloc] init];
+    //[webServices RetrieveAccountValues:extensionURI:self];
+    [_indicator stopAnimating];//temp
 }
 
 - (void)setPageValues
 {
     [_indicator stopAnimating];
-    
     
     for (NSObject *obj in [GlobalObjects allAccInfoForUser]) {
         NSMutableDictionary *dict = (NSMutableDictionary*)obj;
@@ -72,20 +74,10 @@
             _lblAccountType.text = item.AccountType;
         }
     }
-    
-    //NSMutableDictionary *dict = (NSMutableDictionary*)object;
-    //XYZAccountInformation*accInfo = [[XYZAccountInformation alloc] init];
-    //accInfo.Amount = dict[@"Amount"];
-    //accInfo.RequestDate = dict[@"RequestDate"];
-    
-    //_lblRequestDate.text = (accInfo.RequestDate != nil) ? [XYZFormattingHelper SetProperDateTime:accInfo.RequestDate] : @"Error";
-    //_lblAmount.text = (accInfo.Amount != nil) ? [XYZFormattingHelper FormatDecimalToMoneyString:[accInfo.Amount doubleValue]] : @"Error";
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 @end

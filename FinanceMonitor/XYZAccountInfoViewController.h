@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface XYZAccountInfoViewController : UIViewController
+- (IBAction)refreshPage:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UILabel *lblRequestDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;

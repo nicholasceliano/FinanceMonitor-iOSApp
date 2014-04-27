@@ -15,6 +15,8 @@
 		85A81C33190C833B0047500F /* GlobalObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A81C32190C833B0047500F /* GlobalObjects.m */; };
 		85A8927E190C3A0600C0F7F3 /* XYZAllAccountsInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */; };
 		85A89281190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */; };
+		85C6BA57190D933F002120BD /* XYZLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C6BA56190D933F002120BD /* XYZLoginPageViewController.m */; };
+		85C6BA5C190DA86F002120BD /* LaunchIcon_R4_FinanceMonitor.png in Resources */ = {isa = PBXBuildFile; fileRef = 85C6BA5B190DA86F002120BD /* LaunchIcon_R4_FinanceMonitor.png */; };
 		85F10C3E1902FAB500D48F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3D1902FAB500D48F38 /* Foundation.framework */; };
 		85F10C401902FAB500D48F38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */; };
 		85F10C421902FAB500D48F38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F10C411902FAB500D48F38 /* UIKit.framework */; };
@@ -57,6 +59,9 @@
 		85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAllAccountsInformation.m; sourceTree = "<group>"; };
 		85A8927F190C418200C0F7F3 /* XYZAllAccountsInformation_Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAllAccountsInformation_Record.h; sourceTree = "<group>"; };
 		85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAllAccountsInformation_Record.m; sourceTree = "<group>"; };
+		85C6BA55190D933F002120BD /* XYZLoginPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZLoginPageViewController.h; sourceTree = "<group>"; };
+		85C6BA56190D933F002120BD /* XYZLoginPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZLoginPageViewController.m; sourceTree = "<group>"; };
+		85C6BA5B190DA86F002120BD /* LaunchIcon_R4_FinanceMonitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchIcon_R4_FinanceMonitor.png; path = ../../../Pictures/LaunchIcon_R4_FinanceMonitor.png; sourceTree = "<group>"; };
 		85F10C3A1902FAB500D48F38 /* FinanceMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F10C3D1902FAB500D48F38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		85F10C3F1902FAB500D48F38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +108,8 @@
 		852D5FA21903751300503B2D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				85C6BA55190D933F002120BD /* XYZLoginPageViewController.h */,
+				85C6BA56190D933F002120BD /* XYZLoginPageViewController.m */,
 				852D5FAA1904226E00503B2D /* XYZHomePageTableViewController.h */,
 				852D5FAB1904226E00503B2D /* XYZHomePageTableViewController.m */,
 				852D5F9F19036A2F00503B2D /* XYZAccountInfoViewController.h */,
@@ -122,6 +129,14 @@
 				85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		85C6BA58190DA6D5002120BD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				85C6BA5B190DA86F002120BD /* LaunchIcon_R4_FinanceMonitor.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		85F10C311902FAB500D48F38 = {
@@ -157,6 +172,7 @@
 		85F10C431902FAB500D48F38 /* FinanceMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				85C6BA58190DA6D5002120BD /* Images */,
 				85A81C31190C833B0047500F /* GlobalObjects.h */,
 				85A81C32190C833B0047500F /* GlobalObjects.m */,
 				85A6BEFD1904B16B00664DC6 /* XYZFormattingHelper.h */,
@@ -281,6 +297,7 @@
 			files = (
 				85F10C6D1902FFFE00D48F38 /* Main.storyboard in Resources */,
 				85F10C481902FAB500D48F38 /* InfoPlist.strings in Resources */,
+				85C6BA5C190DA86F002120BD /* LaunchIcon_R4_FinanceMonitor.png in Resources */,
 				85F10C501902FAB500D48F38 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +327,7 @@
 				852D5F9B19035D4500503B2D /* XYZAccountsListTableViewController.m in Sources */,
 				85F10C4A1902FAB500D48F38 /* main.m in Sources */,
 				852D5FAC1904226E00503B2D /* XYZHomePageTableViewController.m in Sources */,
+				85C6BA57190D933F002120BD /* XYZLoginPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

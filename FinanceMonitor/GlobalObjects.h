@@ -12,4 +12,6 @@
 @interface GlobalObjects : NSObject
 +(void)load:(NSMutableArray*)loadData;
 +(NSMutableArray*)allAccInfoForUser;
++(void)setUserName:(NSString*)user;
++(NSString*)getUserName;
 @end

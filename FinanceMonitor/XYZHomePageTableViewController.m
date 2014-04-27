@@ -14,8 +14,6 @@
 
 @interface XYZHomePageTableViewController ()
 
-@property NSString* userName;
-
 @end
 
 @implementation XYZHomePageTableViewController
@@ -45,8 +43,7 @@
 
 - (void)refreshData
 {
-    _userName = @"nicholasceliano@yahoo.com";
-    [self populateAccountData:_userName];
+    [self populateAccountData:[GlobalObjects getUserName]];
     [self performSelector:@selector(setPageValues) withObject:nil afterDelay:1];
 }
 
@@ -118,11 +115,9 @@
     
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

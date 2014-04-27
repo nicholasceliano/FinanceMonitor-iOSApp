@@ -49,7 +49,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSError *e;
     NSMutableArray *object = [NSJSONSerialization JSONObjectWithData:self.receivedData options:NSJSONReadingMutableContainers error:&e];
-    [GlobalObjects  load:object];
+    
+    [GlobalObjects load:object];
     
     //Load controls
     if([_controller isKindOfClass:[XYZHomePageTableViewController class]])

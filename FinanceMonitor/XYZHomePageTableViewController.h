@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XYZHomePageTableViewController : UITableViewController
-
 @property (weak, nonatomic) IBOutlet UILabel *lblRetirementDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblRetirementTotal;
 @property (weak, nonatomic) IBOutlet UILabel *lblSavingsTotal;
@@ -19,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblAllAccounts;
-
+@property NSString*username;
 - (void)setPageValues;
 
 @end

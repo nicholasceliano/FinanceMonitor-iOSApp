@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H92-CX-cLm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H92-CX-cLm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -80,6 +80,7 @@
                                 <rect key="frame" x="10" y="82" width="297" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.23921570180000001" green="0.14901961389999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Request Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEO-Wk-ZdZ">
@@ -110,11 +111,23 @@
                                 <color key="textColor" red="0.23921570180000001" green="0.14901961389999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uII-3g-ne6">
+                                <rect key="frame" x="148" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.23921570180000001" green="0.14901961389999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.90196078431372551" blue="0.83529411764705885" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GRg-cX-gyx"/>
+                    <navigationItem key="navigationItem" id="GRg-cX-gyx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="I2p-59-uG4">
+                            <connections>
+                                <action selector="refreshPage:" destination="abO-M4-0FU" id="guL-Xu-XNt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="uII-3g-ne6" id="9uT-QC-Ndz"/>
                         <outlet property="lblAccountType" destination="Sla-b0-cog" id="3bb-Ti-R8E"/>
                         <outlet property="lblAmount" destination="QDt-gp-gR7" id="NZ0-nU-f5a"/>
                         <outlet property="lblRequestDate" destination="QFf-fw-AzA" id="mGS-hk-Rkq"/>
@@ -355,6 +368,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9eb-k0-4xU">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="ZYt-Qc-t3T">
+                            <color key="tintColor" red="0.99215686270000003" green="0.90196078430000004" blue="0.83529411760000005" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <segue destination="H92-CX-cLm" kind="modal" modalTransitionStyle="flipHorizontal" id="B88-he-NHJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Accounts" id="vyZ-Q5-mHz">
                             <connections>
                                 <segue destination="qHs-bj-jNG" kind="push" id="l5g-pA-IJ0"/>
@@ -377,10 +396,10 @@
             </objects>
             <point key="canvasLocation" x="225" y="-981"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Page View Controller-->
         <scene sceneID="1af-Ks-XdV">
             <objects>
-                <viewController id="H92-CX-cLm" sceneMemberID="viewController">
+                <viewController id="H92-CX-cLm" customClass="XYZLoginPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cWq-m0-7ti"/>
                         <viewControllerLayoutGuide type="bottom" id="ZWx-3q-yrB"/>
@@ -389,49 +408,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAq-xt-glH">
-                                <rect key="frame" x="255" y="307" width="45" height="39"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchIcon_R4_FinanceMonitor.png" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-PQ-gLh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@test.com" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8d-LD-6vm">
+                                <rect key="frame" x="108" y="410" width="192" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCx-gM-Vop">
+                                <rect key="frame" x="108" y="448" width="192" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-lW-EZy">
+                                <rect key="frame" x="5" y="414" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvW-8g-Jpl">
+                                <rect key="frame" x="10" y="452" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPa-0M-3b5">
+                                <rect key="frame" x="248" y="486" width="52" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.2274509804" green="0.10980392160000001" blue="0.01176470588" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hnM-9Q-TF2" kind="modal" modalTransitionStyle="flipHorizontal" id="1mK-tW-xxh"/>
+                                    <action selector="login:" destination="H92-CX-cLm" eventType="touchUpInside" id="HDz-Wb-YEs"/>
+                                    <segue destination="hnM-9Q-TF2" kind="modal" modalTransitionStyle="flipHorizontal" id="mnD-Zb-PUH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nicholasceliano@yahoo.com" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UiK-dN-4kJ">
-                                <rect key="frame" x="116" y="235" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xjn-VN-gJL">
-                                <rect key="frame" x="116" y="269" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAE-iD-00D">
-                                <rect key="frame" x="20" y="239" width="92" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.2274509804" green="0.10980392160000001" blue="0.01176470588" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-rg-WUf">
-                                <rect key="frame" x="26" y="273" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.2274509804" green="0.10980392160000001" blue="0.01176470588" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.59215686274509804" blue="0.20392156862745098" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sRd-XG-JL5"/>
+                    <connections>
+                        <outlet property="txtPassword" destination="OCx-gM-Vop" id="T94-Ep-x3K"/>
+                        <outlet property="txtUsername" destination="q8d-LD-6vm" id="bgX-db-ySS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWf-Fn-1oW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-638" y="-987"/>
+            <point key="canvasLocation" x="-8" y="-1845"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Mq-Ic-7Rg">
@@ -451,9 +481,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cJ-bo-pSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-187" y="-981"/>
+            <point key="canvasLocation" x="-237" y="-981"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchIcon_R4_FinanceMonitor.png" width="640" height="1136"/>
+    </resources>
     <color key="tintColor" red="0.2274509804" green="0.10980392160000001" blue="0.01176470588" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
