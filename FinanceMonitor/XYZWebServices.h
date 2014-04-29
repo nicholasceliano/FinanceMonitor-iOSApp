@@ -10,6 +10,8 @@
 
 @interface XYZWebServices: NSObject
 
-- (void)RetrieveAccountValues:(NSString *)extURI:(NSObject *)controler;
-
+- (void)GETWebService_async:(NSString *)extURI controller:(NSObject *)controller;
+- (NSData*)GETWebService_sync:(NSString *)extURI controller:(NSObject *)controller;
+- (void)POSTWebService_async:(NSString *)extURI POSTContent:(NSDictionary*)postContent controller:(NSObject *)controller;
+- (NSData*)POSTWebService_sync:(NSString *)extURI POSTContent:(NSDictionary*)postContent;
 @end

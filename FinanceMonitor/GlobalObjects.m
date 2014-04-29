@@ -9,7 +9,7 @@
 #import "GlobalObjects.h"
 
 static NSMutableArray* allAccInfoForUser = nil;
-static NSString* userName = nil;
+static NSString* userID = nil;
 @implementation GlobalObjects
 //AccountInfo Array
 +(void)load:(NSMutableArray*)loadData
@@ -23,12 +23,12 @@ static NSString* userName = nil;
 }
 
 //UserName
-+(void)setUserName:(NSString*)user
++(void)setUserID:(NSString*)user
 {
-    userName = user;
+    userID = user;
 }
-+(NSString*)getUserName
++(NSString*)getUserID
 {
-    return userName;
+    return userID;
 }
 @end

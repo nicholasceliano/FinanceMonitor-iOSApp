@@ -43,14 +43,14 @@
 
 - (void)refreshData
 {
-    [self populateAccountData:[GlobalObjects getUserName]];
+    [self populateAccountData:[GlobalObjects getUserID]];
     [self performSelector:@selector(setPageValues) withObject:nil afterDelay:1];
 }
 
 - (void)populateAccountData:(NSString*)userName
 {
     XYZWebServices *webServices = [[XYZWebServices alloc] init];
-    [webServices RetrieveAccountValues:[NSString stringWithFormat:@"%@%@%@", @"api/generalAccounts/GetAllAccountsByUser/",userName, @"/"]:self];
+    [webServices GETWebService_async:[NSString stringWithFormat:@"%@%@%@", @"api/generalAccounts/GetAllAccountsByUser/",userName, @"/"] controller:self];
 }
 
 - (void)setPageValues

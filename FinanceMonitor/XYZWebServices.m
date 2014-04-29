@@ -22,20 +22,55 @@
 
 @implementation XYZWebServices
 
-- (void)RetrieveAccountValues:(NSURL *)extensionURI: (NSObject *)controler
+const NSString*baseURI = @"https://financemonitor.azurewebsites.net/";
+
+- (void)GETWebService_async:(NSString *)extURI controller:(NSObject *)controller
 {
-    _controller = controler;
+    _controller = controller;
     
-    static NSString*baseURI = @"https://financemonitor.azurewebsites.net/";
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURI,extensionURI]];
-    
-    NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:60];
-    _receivedData = [NSMutableData dataWithCapacity: 0];
+    NSMutableURLRequest*request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURI,extURI]]];
+    [request setHTTPMethod:@"GET"];
     
     NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [theConnection start];
+}
+
+- (void)POSTWebService_async:(NSString *)extURI POSTContent:(NSDictionary*)postContent controller:(NSObject *)controller
+{
+    _controller = controller;
     
-    NSLog(@"%@", theConnection);
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:postContent options:0 error:nil];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSMutableURLRequest*request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURI, extURI]]];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
+
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [theConnection start];
+}
+
+- (NSData*)POSTWebService_sync:(NSString *)extURI POSTContent:(NSDictionary*)postContent
+{
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:postContent options:0 error:nil];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURI, extURI]]];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accepts"];
+    [request setHTTPBody:postData];
+    NSURLResponse *response;
+    NSError *error = nil;
+    
+    //Capturing server response
+    NSData *result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
+    return result;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -59,7 +94,6 @@
         [(XYZAccountInfoViewController*)_controller setPageValues];
     else if ([_controller isKindOfClass:[XYZAccountsListTableViewController class]])
         [(XYZAccountsListTableViewController*)_controller setPageValues];
-    
 }
 
 @end

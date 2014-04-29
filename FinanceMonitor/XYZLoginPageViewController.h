@@ -12,5 +12,6 @@
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UILabel *lblError;
 
 @end

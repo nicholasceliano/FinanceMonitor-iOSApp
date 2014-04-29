@@ -9,6 +9,7 @@
 #import "XYZLoginPageViewController.h"
 #import "XYZHomePageTableViewController.h"
 #import "GlobalObjects.h"
+#import "XYZWebServices.h"
 
 @interface XYZLoginPageViewController ()
 
@@ -28,26 +29,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _txtPassword.secureTextEntry = YES;
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)login:(id)sender {
-    //Do Login logic to check if user is valid
+    //Get userID
+    NSMutableDictionary*dict = [[NSMutableDictionary alloc]init];
+    [dict setObject:_txtUsername.text forKey:@"userid"];
+    [dict setObject:_txtPassword.text forKey:@"password"];
     
-    [self test];
+    XYZWebServices *webServices = [[XYZWebServices alloc]init];
     
-    //Set global username
-    [GlobalObjects setUserName:_txtUsername.text];
-
+    NSData *result = [webServices POSTWebService_sync:@"api/generalAccounts/ValidateUserCredentials" POSTContent:dict];
+    
+    [GlobalObjects setUserID:[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];
 }
 
-- (BOOL)test
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if (_txtUsername.text == nil) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[GlobalObjects getUserID]  isEqual: @"null"]) {
+        if([_txtUsername.text  isEqual: @""]){
+            _lblError.text = @"Error: Must enter valid username.";
+            return NO;
+        } else if ([_txtPassword.text isEqual:@""]){
+            _lblError.text = @"Error: Must enter a password";
+            return NO;
+        } else{
+            _lblError.text = @"Error: Invalid Credentials";
+            return NO;
+        }
+    }else{
         return YES;
     }
-    return NO;
 }
 
 - (void)didReceiveMemoryWarning

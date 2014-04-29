@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *lblInvestmentsDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblAllAccounts;
-@property NSString*username;
+@property NSInteger*userID;
 - (void)setPageValues;
 
 @end
