@@ -49,9 +49,9 @@
         XYZAllAccountsInformation_Record *newItem = [[XYZAllAccountsInformation_Record alloc] init];
         newItem.ID = dict[@"ID"];
         newItem.AccNickName = dict[@"AccNickName"];
-        newItem.IsActive = dict[@"IsActive"];
+        newItem.Active = dict[@"Active"];
         
-        if (newItem.IsActive) {
+        if (newItem.Active) {
             [self.Accounts addObject:newItem];
         }
     }
@@ -99,12 +99,17 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UITableViewCell *cell = sender;
-    
-    XYZAccountInfoViewController *controller = segue.destinationViewController;
-    
-    controller.pageTitle = cell.textLabel.text;
-    controller.accountID = cell.tag;
+    if ([sender tag] == -1) {
+        //do nothing yet
+        //Goes to add new account page
+    }else
+    {
+        UITableViewCell *cell = sender;
+        XYZAccountInfoViewController *controller = segue.destinationViewController;
+        
+        controller.pageTitle = cell.textLabel.text;
+        controller.accountID = cell.tag;
+    }
 }
 
 

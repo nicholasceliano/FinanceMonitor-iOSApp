@@ -75,9 +75,9 @@
         item.AccountTypeID = dict[@"AccountTypeID"];
         item.LatestAmount = dict[@"LatestAmount"];
         item.LatestRequestDate = dict[@"LatestRequestDate"];
-        item.IsActive = dict[@"IsActive"];
+        item.Active = dict[@"Active"];
         
-        if (item.IsActive)
+        if (item.Active)
         {
             totAllAccounts = totAllAccounts + [item.LatestAmount doubleValue];
             

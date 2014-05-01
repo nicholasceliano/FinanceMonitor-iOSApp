@@ -15,5 +15,5 @@
 @property NSString *AccountType;
 @property NSNumber *LatestAmount;
 @property NSString *LatestRequestDate;
-@property NSString *IsActive;
+@property NSString *Active;
 @end
