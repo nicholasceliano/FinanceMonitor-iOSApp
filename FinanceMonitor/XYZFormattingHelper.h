@@ -11,4 +11,5 @@
 @interface XYZFormattingHelper : NSObject
 + (NSString*)SetProperDateTime:(NSString*)stringDate;
 + (NSString*)FormatDecimalToMoneyString:(double)decimalValue;
++ (BOOL)ValidateEmailWithString:(NSString*)email;
 @end

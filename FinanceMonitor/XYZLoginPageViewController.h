@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UILabel *lblError;
+- (IBAction)txtUsernameExit:(id)sender;
+- (IBAction)txtPasswordExit:(id)sender;
 
 @end

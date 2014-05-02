@@ -35,6 +35,12 @@ const NSString*baseURI = @"https://financemonitor.azurewebsites.net/";
     [theConnection start];
 }
 
+- (NSData*)GETWebService_sync:(NSString *)extURI controller:(NSObject *)controller;
+{
+    NSData *result;
+    return result;
+}
+
 - (void)POSTWebService_async:(NSString *)extURI POSTContent:(NSDictionary*)postContent controller:(NSObject *)controller
 {
     _controller = controller;

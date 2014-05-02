@@ -13,6 +13,7 @@
 		85A6BEF0190488F600664DC6 /* XYZWebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEEF190488F600664DC6 /* XYZWebServices.m */; };
 		85A6BEFF1904B16B00664DC6 /* XYZFormattingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6BEFE1904B16B00664DC6 /* XYZFormattingHelper.m */; };
 		85A7F9301911D8450043B845 /* XYZAddNewAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7F92F1911D8450043B845 /* XYZAddNewAccountViewController.m */; };
+		85A7F935191312ED0043B845 /* XYZCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7F934191312ED0043B845 /* XYZCreateAccountViewController.m */; };
 		85A81C33190C833B0047500F /* GlobalObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A81C32190C833B0047500F /* GlobalObjects.m */; };
 		85A8927E190C3A0600C0F7F3 /* XYZAllAccountsInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A8927D190C3A0600C0F7F3 /* XYZAllAccountsInformation.m */; };
 		85A89281190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A89280190C418200C0F7F3 /* XYZAllAccountsInformation_Record.m */; };
@@ -56,6 +57,8 @@
 		85A6BEFE1904B16B00664DC6 /* XYZFormattingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZFormattingHelper.m; sourceTree = "<group>"; };
 		85A7F92E1911D8450043B845 /* XYZAddNewAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAddNewAccountViewController.h; sourceTree = "<group>"; };
 		85A7F92F1911D8450043B845 /* XYZAddNewAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZAddNewAccountViewController.m; sourceTree = "<group>"; };
+		85A7F933191312ED0043B845 /* XYZCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZCreateAccountViewController.h; sourceTree = "<group>"; };
+		85A7F934191312ED0043B845 /* XYZCreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZCreateAccountViewController.m; sourceTree = "<group>"; };
 		85A81C31190C833B0047500F /* GlobalObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalObjects.h; sourceTree = "<group>"; };
 		85A81C32190C833B0047500F /* GlobalObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalObjects.m; sourceTree = "<group>"; };
 		85A8927C190C3A0600C0F7F3 /* XYZAllAccountsInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZAllAccountsInformation.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 		85A7F9311911D84E0043B845 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				85A7F933191312ED0043B845 /* XYZCreateAccountViewController.h */,
+				85A7F934191312ED0043B845 /* XYZCreateAccountViewController.m */,
 				852D5F9F19036A2F00503B2D /* XYZAccountInfoViewController.h */,
 				852D5FA019036A2F00503B2D /* XYZAccountInfoViewController.m */,
 				85A7F92E1911D8450043B845 /* XYZAddNewAccountViewController.h */,
@@ -349,6 +354,7 @@
 				852D5F9B19035D4500503B2D /* XYZAccountsListTableViewController.m in Sources */,
 				85F10C4A1902FAB500D48F38 /* main.m in Sources */,
 				852D5FAC1904226E00503B2D /* XYZHomePageTableViewController.m in Sources */,
+				85A7F935191312ED0043B845 /* XYZCreateAccountViewController.m in Sources */,
 				85C6BA57190D933F002120BD /* XYZLoginPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
