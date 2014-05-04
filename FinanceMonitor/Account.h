@@ -1,5 +1,5 @@
 //
-//  XYZAccountInformation.h
+//  Account.h
 //  FinanceMonitor
 //
 //  Created by NEC on 4/20/14.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XYZAccountInformation : NSObject
-@property NSNumber *Amount;
-@property NSString *RequestDate;
+@interface Account : NSObject
+@property NSString *AccountName;
 @end
