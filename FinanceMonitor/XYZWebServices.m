@@ -35,9 +35,16 @@ const NSString*baseURI = @"https://financemonitor.azurewebsites.net/";
     [theConnection start];
 }
 
-- (NSData*)GETWebService_sync:(NSString *)extURI controller:(NSObject *)controller;
+- (NSData*)GETWebService_sync:(NSString *)extURI;
 {
-    NSData *result;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURI, extURI]]];
+    
+    [request setHTTPMethod:@"GET"];
+    NSURLResponse *response;
+    NSError *error = nil;
+    
+    //Capturing server response
+    NSData *result = [NSURLConnection sendSynchronousRequest:request  returningResponse:&response error:&error];
     return result;
 }
 

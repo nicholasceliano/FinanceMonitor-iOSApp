@@ -11,7 +11,7 @@
 @interface XYZWebServices: NSObject
 
 - (void)GETWebService_async:(NSString *)extURI controller:(NSObject *)controller;
-- (NSData*)GETWebService_sync:(NSString *)extURI controller:(NSObject *)controller;
+- (NSData*)GETWebService_sync:(NSString *)extURI;
 - (void)POSTWebService_async:(NSString *)extURI POSTContent:(NSDictionary*)postContent controller:(NSObject *)controller;
 - (NSData*)POSTWebService_sync:(NSString *)extURI POSTContent:(NSDictionary*)postContent;
 @end
